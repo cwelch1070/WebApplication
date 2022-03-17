@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap-5.1.3/css/bootstrap.css">
+    <title>Herds</title>
+
+
+</head>
+<body class="bg-light text-white">
+<!--NavBar-->
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark bg-gradient">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="https://www.cowcalftracker.com">CowCalfTracker.com</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">GitHub</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Resources
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="https://www.calebjwelch.com">calebjwelch.com</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#">About</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled"></a>
+                </li>
+            </ul>
+            <form class="d-flex">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-dark btn-outline-success" type="submit">Search</button>
+            </form>
+        </div>
+    </div>
+</nav>
+
+<!--Image-->
+<div>
+    <img src="images/cattle1.jpg.crdownload" class="img-fluid" alt="cattle_grazing">
+    <div class="container card-img-overlay">
+        <h5 class="card-title text-dark position-absolute top-50 start-50 translate-middle-x fs-1">CowCalfTracker.com</h5>
+    </div>
+</div>
+<!--Table-->
+<div class="container">
+    <p style="height: 50px;"></p>
+    <div class="text-dark fs-1">Dashboard</div>
+    <div class="text-dark fs-3">Available Herds:</div>
+    <table class="table table-light table-borderless table-striped table-hover">
+        <thead>
+        <tr>
+            <th scope="col">Herds</th>
+            <th scope="col">Cows</th>
+            <th scope="col">Calves</th>
+            <th scope="col">Last Checked</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="cattle : ${listCattle}" data-toggle="collapse">
+            <th scope="row"></th>
+            <td th:text="${cattle.NumberOfCattle}"></td>
+            <td th:text="${cattle.NumberOfCalves}"></td>
+            <td th:text="${cattle.LastDateChecked}"></td>
+            <td>
+                <a href="#" class="btn btn-primary">Update</a>
+                <a href="#" class="btn btn-danger">Delete</a>
+            </td>
+        </tbody>
+    </table>
+    <a href="#" class="btn btn-success">Add Herd</a>
+</div>
+
+<p style="height: 1000px;"></p>
+
+
+<script src="bootstrap-5.1.3/js/bootstrap.bundle.js"></script>
+</body>
+</html>

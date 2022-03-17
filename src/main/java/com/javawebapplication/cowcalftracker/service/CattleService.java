@@ -1,3 +1,5 @@
+//3
+//This interface creates a list of the Cattle.java class object and names it getAllCattle()
 package com.javawebapplication.cowcalftracker.service;
 
 import com.javawebapplication.cowcalftracker.model.Cattle;
